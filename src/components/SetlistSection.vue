@@ -95,18 +95,18 @@ onMounted(() => {
       </div>
 
       <!-- Tab Switcher (Mobile Only) -->
-      <div class="flex lg:hidden mb-10 p-1 bg-surface2 rounded-sm border border-white/5 shadow-2xl">
+      <div class="flex lg:hidden mb-10 p-1 bg-[#151515] rounded-sm border border-white/10 shadow-2xl">
         <button 
           @click="activeTab = 'pop'"
-          class="flex-1 py-3 font-heading font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-sm"
-          :class="activeTab === 'pop' ? 'bg-lime text-black shadow-[0_0_15px_rgba(179,255,0,0.3)]' : 'text-white/30 hover:text-white/60'">
-          <span style="font-size: 0.8rem;">Pop</span>
+          class="flex-1 py-3.5 font-heading font-bold uppercase tracking-[0.15em] transition-all duration-300 rounded-sm"
+          :class="activeTab === 'pop' ? 'active-tab' : 'text-white/60 hover:text-white'">
+          <span style="font-size: 0.85rem;">Pop</span>
         </button>
         <button 
           @click="activeTab = 'rock'"
-          class="flex-1 py-3 font-heading font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-sm"
-          :class="activeTab === 'rock' ? 'bg-lime text-black shadow-[0_0_15px_rgba(179,255,0,0.3)]' : 'text-white/30 hover:text-white/60'">
-          <span style="font-size: 0.8rem;">Pop Rock</span>
+          class="flex-1 py-3.5 font-heading font-bold uppercase tracking-[0.15em] transition-all duration-300 rounded-sm"
+          :class="activeTab === 'rock' ? 'active-tab' : 'text-white/60 hover:text-white'">
+          <span style="font-size: 0.85rem;">Pop Rock</span>
         </button>
       </div>
 
@@ -162,16 +162,12 @@ onMounted(() => {
 </template>
 
 <style scoped>
-@keyframes eqBounce {
-  0%, 100% { transform: scaleY(0.4); }
-  50% { transform: scaleY(1); }
+.active-tab {
+  background-color: var(--color-lime) !important;
+  color: var(--color-black) !important;
+  box-shadow: 0 4px 25px rgba(179, 255, 0, 0.4);
 }
-.eq-bar {
-  animation: eqBounce 0.6s ease-in-out infinite alternate;
-}
-</style>
 
-<style scoped>
 @keyframes eqBounce {
   0%, 100% { transform: scaleY(0.4); }
   50% { transform: scaleY(1); }

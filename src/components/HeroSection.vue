@@ -49,8 +49,8 @@
 
     <!-- Content -->
     <div class="relative z-10 max-w-[1400px] mb-4 md:mb-0">
-      <p ref="eyebrowRef" class="font-heading text-text-muted leading-[1.2] tracking-[0.2em] mb-4 md:mb-6 opacity-0 max-w-[800px] uppercase"
-         style="font-size: var(--text-lg); font-weight: 600;">
+      <p ref="eyebrowRef" class="font-heading text-white/50 leading-[1.2] tracking-[0.25em] mb-4 md:mb-6 opacity-0 max-w-[800px] uppercase"
+         style="font-size: var(--text-base); font-weight: 300;">
         Cuando todos buscan lo dulce yo prefiero lo
       </p>
 

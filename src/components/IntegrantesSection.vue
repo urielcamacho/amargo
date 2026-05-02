@@ -1,8 +1,8 @@
 <template>
   <section id="integrantes" class="bg-dark overflow-hidden" aria-label="Integrantes de la banda">
     <div class="section-wrap">
-      <div ref="headerRef" class="mb-[clamp(2.5rem,6vw,4rem)] text-center sm:text-left">
-        <div class="section-eyebrow justify-center sm:justify-start"><span class="label">04 — La Banda</span></div>
+      <div ref="headerRef" class="mb-[clamp(2rem,5vw,3rem)]">
+        <div class="section-eyebrow"><span class="label">04 — La Banda</span></div>
         <h2 class="section-title">6 músicos.<br>1 show.</h2>
       </div>
 
