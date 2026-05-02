@@ -64,14 +64,14 @@
 
       <div ref="descriptorRef" class="relative mt-2 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 opacity-0">
         <div ref="heroLineRef" class="hidden sm:block w-0 h-px bg-lime shrink-0" aria-hidden="true"></div>
-        <p class="font-heading uppercase tracking-[0.4em] text-text-muted"
+        <p class="font-heading uppercase tracking-[0.4em] text-muted font-bold"
            style="font-size: var(--text-base);">
-          Banda de rock en vivo · Presskit 2026
+          Presskit 2026
         </p>
       </div>
 
       <div ref="ctaRowRef" class="relative mt-[clamp(2.5rem,6vw,3.5rem)] flex flex-wrap gap-5 opacity-0">
-        <a href="#cta" class="btn-lime !text-[clamp(0.85rem,2vw,1.1rem)] !py-5 !px-10">Contratar Banda</a>
+        <a href="#cta" class="btn-lime !text-[clamp(0.85rem,2vw,1.1rem)] !py-5 !px-10 !font-bold">Contáctanos</a>
         <a href="#propuesta" class="btn-ghost !text-[clamp(0.85rem,2vw,1.1rem)] !py-5 !px-10">Ver Propuesta</a>
       </div>
     </div>

@@ -24,7 +24,7 @@ import { gsap } from '@/composables/useGsap'
 const items = [
   { text: 'AMARGO', hi: true },
   { text: 'NOCHE MILLENNIAL', hi: false },
-  { text: 'POP / ROCK', hi: true },
+  { text: 'MÚSICA EN VIVO', hi: true },
   { text: '100% NOSTALGIA', hi: false },
   { text: 'EN VIVO', hi: true },
   { text: 'SHOW COMPLETO', hi: false },

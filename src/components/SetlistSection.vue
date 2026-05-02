@@ -82,14 +82,14 @@ onMounted(() => {
 <template>
   <section id="setlist" class="bg-black" aria-label="Set list de canciones">
     <div class="section-wrap">
-      <div ref="headerRef" class="mb-[clamp(2rem,5vw,3rem)] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+      <div ref="headerRef" class="mb-[clamp(2rem,5vw,3rem)] flex flex-row items-end justify-between gap-4">
         <div>
-          <div class="section-eyebrow"><span class="label">05 — Repertorio</span></div>
-          <h2 class="section-title">Set List.</h2>
+          <div class="section-eyebrow"><span class="label">04 — Repertorio</span></div>
+          <h2 class="section-title mb-0">Set List.</h2>
         </div>
         
-        <div class="nostalgia-sticker bg-red font-heading font-black italic uppercase leading-tight px-4 py-2 border-[2px] border-white shadow-[4px_4px_0_var(--color-lime)] rotate-3 transition-transform duration-500 hover:-rotate-3 hover:scale-110 cursor-default self-start sm:self-auto"
-             style="font-size: 1.1rem;" aria-hidden="true">
+        <div class="nostalgia-sticker bg-red font-heading font-black italic uppercase leading-tight px-3 py-1.5 border-[2px] border-white shadow-[3px_3px_0_var(--color-lime)] rotate-3 transition-transform duration-500 hover:-rotate-3 hover:scale-110 cursor-default flex-shrink-0 mb-1"
+             style="font-size: 0.9rem;" aria-hidden="true">
           100% Nostalgia
         </div>
       </div>

@@ -6,7 +6,7 @@
         <div>
           <img src="@/images/logo-amargo-removebg-preview.png" alt="AMARGO Logo" class="h-20 w-auto object-contain mb-6 brightness-110" />
           <p class="text-[0.85rem] text-text-muted leading-relaxed max-w-[260px]">
-            Banda de rock en vivo especializada en pop/rock 2000s. Shows profesionales para eventos, festivales y venues.
+            Música en vivo de alta calidad y profesionalismo. Combinamos energía vibrante con la nostalgia de los 2000s para asegurar una noche exitosa.
           </p>
         </div>
         <div>
@@ -22,7 +22,7 @@
           <ul class="list-none flex flex-col gap-2.5">
             <li><a href="https://instagram.com/amargo_music" target="_blank" rel="noopener" class="text-[0.88rem] text-text-muted hover:text-lime transition-colors">@amargo_music</a></li>
             <li><a href="mailto:aamargomusic@gmail.com" class="text-[0.88rem] text-text-muted hover:text-lime transition-colors">aamargomusic@gmail.com</a></li>
-            <li><a href="#cta" class="text-[0.88rem] text-text-muted hover:text-lime transition-colors">Contratar →</a></li>
+            <li><a href="#cta" class="text-[0.88rem] text-text-muted hover:text-lime transition-colors">Contáctanos →</a></li>
           </ul>
         </div>
       </div>

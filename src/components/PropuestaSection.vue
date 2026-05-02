@@ -12,12 +12,12 @@
              :style="{ padding: 'clamp(1.5rem,5vw,2.8rem)' }">
           <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-lime to-transparent"></div>
           
-          <span class="inline-block self-start font-heading text-[0.65rem] font-bold tracking-[0.25em] uppercase bg-lime text-black px-3 py-1 rounded-sm mb-5">Concierto Pop / Rock</span>
-          <h3 class="font-heading font-black italic uppercase leading-[0.95] mb-5" style="font-size: clamp(2.8rem, 9vw, 5rem);">
-            Revive<br><em class="not-italic text-lime block">tu época</em>
-          </h3>
+          <span class="inline-block self-start font-heading text-[0.65rem] font-bold tracking-[0.25em] uppercase bg-lime text-black px-3 py-1 rounded-sm mb-8">Propuesta en Vivo</span>
+          <p class="text-text leading-relaxed font-medium mb-4" style="font-size: clamp(1.1rem, 2vw, 1.35rem);">
+            Un concierto preparado para traer de vuelta cada etapa de la vida de un chavorruco actual. 
+          </p>
           <p class="text-text-muted leading-relaxed" style="font-size: var(--text-base);">
-            Un concierto preparado para traer de vuelta cada etapa de la vida de un chavorruco actual. Lleno de nostalgia, diversión y sorpresas que a más de uno le recordará su primer amor, la fiesta de preparatoria y la increíble vida de los 2000s.
+            Lleno de nostalgia, diversión y sorpresas que a más de uno le recordará su primer amor, la fiesta de preparatoria y la increíble vida de los 2000s.
           </p>
           <div class="mt-8 pt-6 border-t border-border">
             <span class="label block mb-3.5">Tributos incluidos</span>

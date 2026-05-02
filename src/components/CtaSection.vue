@@ -1,5 +1,5 @@
 <template>
-  <section id="cta" class="bg-black relative overflow-hidden text-center min-h-[70vh] flex items-center justify-center" aria-label="Contratar a AMARGO">
+  <section id="cta" class="bg-black relative overflow-hidden text-center min-h-[70vh] flex items-center justify-center" aria-label="Contáctanos">
     <!-- Background Image with intense blur and darkness -->
     <div class="absolute inset-0 z-0 opacity-40">
       <img src="@/images/Amargo227.jpg" alt="" class="w-full h-full object-cover blur-md scale-110" aria-hidden="true" />
@@ -45,7 +45,7 @@
 
       <div ref="btnsRef" class="flex flex-col sm:flex-row gap-5 items-center justify-center">
         <a href="https://instagram.com/amargo_music" target="_blank" rel="noopener noreferrer"
-           class="btn-lime min-w-[260px] text-center !py-5 !font-black uppercase tracking-[0.2em] shadow-[0_20px_40px_-10px_rgba(163,255,0,0.3)] hover:shadow-[0_25px_50px_-12px_rgba(163,255,0,0.5)] transition-all"
+           class="btn-lime min-w-[260px] text-center !py-5 !font-bold uppercase tracking-[0.2em] shadow-[0_20px_40px_-10px_rgba(163,255,0,0.3)] hover:shadow-[0_25px_50_50px_-12px_rgba(163,255,0,0.5)] transition-all"
            style="font-size: var(--text-base);">
           DM en Instagram →
         </a>

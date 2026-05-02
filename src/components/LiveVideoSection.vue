@@ -33,18 +33,13 @@
       <div class="mt-12 flex flex-col md:flex-row justify-between items-start gap-8" ref="footerRef">
         <div class="max-w-xl">
           <p class="text-text-muted leading-relaxed" style="font-size: var(--text-base);">
-            Nuestra propuesta no es solo música, es una conexión directa con la audiencia a través de los himnos que definieron una generación. <span class="text-text font-medium">Revive la nostalgia con el sonido más potente de la escena.</span>
+            Nuestra propuesta no es solo música, es una conexión directa con la audiencia a través de los himnos que definieron una generación. <br><span class="text-text font-medium">Revive la nostalgia con el sonido más potente de la escena.</span>
           </p>
         </div>
         <div class="flex gap-6">
           <div class="flex flex-col items-center">
             <span class="text-lime font-display text-4xl leading-none">30+</span>
             <span class="text-[0.65rem] uppercase tracking-[0.2em] text-text-dim mt-1">Temas</span>
-          </div>
-          <div class="w-px h-12 bg-white/10 mx-2"></div>
-          <div class="flex flex-col items-center">
-            <span class="text-lime font-display text-4xl leading-none">GIRA</span>
-            <span class="text-[0.65rem] uppercase tracking-[0.2em] text-text-dim mt-1">2026</span>
           </div>
         </div>
       </div>

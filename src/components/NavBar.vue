@@ -30,9 +30,9 @@
 
     <a
       href="#cta"
-      class="hidden md:block btn-lime !py-3 !px-7 !font-black"
+      class="hidden md:block btn-lime !py-3 !px-7 !font-bold"
       style="font-size: var(--text-sm);"
-    >Contratar Banda</a>
+    >Contáctanos</a>
 
     <button
       ref="hamRef"
@@ -72,8 +72,8 @@
         >{{ link.text }}</a>
       </li>
     </ul>
-    <a href="#cta" class="mt-8 inline-block self-start btn-lime !px-8 !py-4 text-[0.8rem]" @click="closeMenu">
-      Contratar Banda →
+    <a href="#cta" class="mt-8 inline-block self-start btn-lime !px-8 !py-4 text-[0.8rem] !font-bold" @click="closeMenu">
+      Contáctanos →
     </a>
     <span class="mt-5 font-heading text-xs tracking-[0.2em] text-text-dim uppercase">@amargo_music</span>
   </div>

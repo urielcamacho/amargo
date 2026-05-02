@@ -8,9 +8,9 @@
   <PropuestaSection />
   <LiveVideoSection />
   <SectionDivider />
-  <IntegrantesSection />
-  <SectionDivider />
   <SetlistSection />
+  <SectionDivider />
+  <IntegrantesSection />
   <SectionDivider />
   <SocialProof />
   <CtaSection />

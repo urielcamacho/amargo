@@ -9,11 +9,11 @@
             <h2 class="section-title">Más que<br>covers.</h2>
           </div>
           <p class="text-text-muted leading-relaxed max-w-[550px]" style="font-size: var(--text-base);">
-            Amargo es una banda <strong class="text-text font-medium">pop/rock en vivo de 6 integrantes</strong> creada para ser más que la propuesta promedio, con
+            Amargo es una propuesta de <strong class="text-text font-medium">música en vivo</strong> creada para ser más que la propuesta promedio, con
             músicos de calidad y profesionalismo en cada presentación. Amargo lo tiene todo para asegurar una noche exitosa y llena de ambiente.
           </p>
-          <p class="text-text-muted leading-relaxed max-w-[550px] mt-6" style="font-size: var(--text-base);">
-            Cada show es un espectáculo cuidadosamente producido: voces en armonía, instrumentación en vivo y presencia escénica real. <strong class="text-text font-medium">Combinamos la energía del rock con la nostalgia irresistible de los 2000s, la era que definió una generación.</strong>
+          <p class="text-text-muted leading-relaxed max-w-[550px]" style="font-size: var(--text-base);">
+            Cada show es un espectáculo cuidadosamente producido: voces en armonía, instrumentación en vivo y presencia escénica real. <strong class="text-text font-medium">Combinamos una energía vibrante con la nostalgia irresistible de los 2000s, la era que definió una generación.</strong>
           </p>
           <div class="mt-8">
             <a href="https://instagram.com/amargo_music" target="_blank" rel="noopener noreferrer" class="btn-ghost">@amargo_music →</a>
@@ -38,7 +38,6 @@ import { ref, onMounted } from 'vue'
 import { useStagger } from '@/composables/useGsap'
 
 const stats = [
-  { val: '6', label: 'Músicos<br>en escena' },
   { val: '2000s', label: 'Era que<br>dominamos' },
   { val: '100%', label: 'En vivo.<br>Sin playback.' },
   { val: '★★★★★', label: 'Puesta en<br>escena' },
