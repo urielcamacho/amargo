@@ -85,8 +85,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const navLinks = [
   { href: '#about', text: 'Banda' },
   { href: '#propuesta', text: 'Propuesta' },
-  { href: '#integrantes', text: 'Integrantes' },
   { href: '#setlist', text: 'Set List' },
+  { href: '#integrantes', text: 'Integrantes' },
   { href: '#cta', text: 'Contacto' },
 ]
 

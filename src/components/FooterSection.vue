@@ -46,7 +46,7 @@
 const navLinks = [
   { href: '#about', text: 'Acerca de' },
   { href: '#propuesta', text: 'Propuesta' },
-  { href: '#integrantes', text: 'Integrantes' },
   { href: '#setlist', text: 'Set List' },
+  { href: '#integrantes', text: 'Integrantes' },
 ]
 </script>
