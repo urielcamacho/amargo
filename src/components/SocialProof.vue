@@ -27,7 +27,7 @@
              @mouseup="resumeAutoLoop">
              
           <div v-for="(r, i) in reviews" :key="i"
-               class="proof-card shrink-0 w-[85vw] md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] snap-start relative rounded-sm flex flex-col gap-4 group"
+               class="proof-card shrink-0 w-[85vw] md:w-[calc(50%-0.75rem)] lg:w-[calc(50%-1rem)] snap-start relative rounded-sm flex flex-col gap-4 group"
                @mouseenter="onCardEnter($event)"
                @mouseleave="onCardLeave($event)">
 
@@ -63,11 +63,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { gsap } from '@/composables/useGsap'
 
 const reviews = [
-  { text: 'El show de AMARGO fue lo mejor de nuestra noche corporativa. Todos bailaron, todos cantaron. Ya los estamos volviendo a contratar.', name: 'Laura M.', role: 'Organizadora de Eventos' },
-  { text: 'Pensé que sería una banda de covers normal... Nada que ver. Nivel escénico increíble, sonido impecable y el público explotó desde el primer tema.', name: 'Rodrigo S.', role: 'Promotor, Venue CDMX' },
-  { text: 'La Noche Millennial fue pura nostalgia y adrenalina. Todo el salón de pie desde la segunda canción. Profesionales de primer nivel.', name: 'Fernanda C.', role: 'Evento Privado — XV años' },
-  { text: 'Increíble energía. Se nota que disfrutan lo que hacen y eso se contagia. El repertorio es perfecto para los que crecimos en los 2000.', name: 'Juan P.', role: 'Boda — Valle de Bravo' },
-  { text: 'Puntualidad, sonido brutal y un trato súper profesional. Recomiendo a AMARGO para cualquier evento que busque calidad real.', name: 'Mónica G.', role: 'Gerente de Marketing' }
+  { text: 'Cada Diciembre procuramos hacer algo diferente en Paki eco mercado, algo que sea único y dé a los visitantes y clientes de paki un ambiente diferente, gracias a Amargo music, por apoyarnos en lograr ese reto, la temática musical que nos compartieron en diciembre fue algo original, combino con las actividades navideñas que realizamos y por supuesto los clientes y expositores se fueron con un gran sabor de boca por el repertorio que nos brindaron. Es más!, estamos considerandolos para el 10° Aniversario de Paki 😊 Excelente banda para los eventos!!', name: 'Paki Ecomercado', role: '' },
 ]
 
 const headerRef = ref(null)

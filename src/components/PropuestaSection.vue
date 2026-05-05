@@ -17,7 +17,7 @@
             Un concierto preparado para traer de vuelta cada etapa de la vida de un chavorruco actual. 
           </p>
           <p class="text-text-muted leading-relaxed" style="font-size: var(--text-base);">
-            Lleno de nostalgia, diversión y sorpresas que a más de uno le recordará su primer amor, la fiesta de preparatoria y la increíble vida de los 2000s.
+            Lleno de nostalgia, diversión y sorpresas que a más de uno le recordará su primer amor, la fiesta y la increíble vida de los 2000s.
           </p>
           <div class="mt-8 pt-6 border-t border-border">
             <span class="label block mb-3.5">Tributos incluidos</span>

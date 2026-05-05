@@ -33,7 +33,7 @@
       <div class="mt-12 flex flex-col md:flex-row justify-between items-start gap-8" ref="footerRef">
         <div class="max-w-xl">
           <p class="text-text-muted leading-relaxed" style="font-size: var(--text-base);">
-            Nuestra propuesta no es solo música, es una conexión directa con la audiencia a través de los himnos que definieron una generación. <br><span class="text-text font-medium">Revive la nostalgia con el sonido más potente de la escena.</span>
+            No son solo covers, es una conexión directa con la audiencia a través de los himnos que definieron una generación. <br><span class="text-text font-medium">Revive la nostalgia con el sonido más potente de la escena.</span>
           </p>
         </div>
         <div class="flex gap-6">

@@ -9,7 +9,7 @@
             <h2 class="section-title">Más que<br>covers.</h2>
           </div>
           <p class="text-text-muted leading-relaxed max-w-[550px]" style="font-size: var(--text-base);">
-            Amargo es una propuesta de <strong class="text-text font-medium">música en vivo</strong> creada para ser más que la propuesta promedio, con
+            Amargo es una propuesta de <strong class="text-text font-medium">música en vivo</strong> diseñada para ofrecer una experiencia por encima del estándar, con
             músicos de calidad y profesionalismo en cada presentación. Amargo lo tiene todo para asegurar una noche exitosa y llena de ambiente.
           </p>
           <p class="text-text-muted leading-relaxed max-w-[550px]" style="font-size: var(--text-base);">

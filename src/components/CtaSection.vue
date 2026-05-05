@@ -38,7 +38,7 @@
 
       <div class="max-w-2xl mx-auto mb-12">
         <p ref="subRef" class="text-text-muted leading-relaxed" style="font-size: var(--text-lg);">
-          No es música de fondo — <span class="text-text font-bold">es un show completo de nostalgia.</span><br>
+          No es música de fondo — <span class="text-text font-bold">es un show</span><br>
           Cotiza tu evento y vive la experiencia AMARGO.
         </p>
       </div>
