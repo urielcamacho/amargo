@@ -64,6 +64,10 @@ import { gsap } from '@/composables/useGsap'
 
 const reviews = [
   { text: 'Cada Diciembre procuramos hacer algo diferente en Paki eco mercado, algo que sea único y dé a los visitantes y clientes de paki un ambiente diferente, gracias a Amargo music, por apoyarnos en lograr ese reto, la temática musical que nos compartieron en diciembre fue algo original, combino con las actividades navideñas que realizamos y por supuesto los clientes y expositores se fueron con un gran sabor de boca por el repertorio que nos brindaron. Es más!, estamos considerandolos para el 10° Aniversario de Paki 😊 Excelente banda para los eventos!!', name: 'Paki Ecomercado', role: '' },
+  { text: 'Contratamos a Amargo para la fiesta de mi esposo, no esperábamos que pusieran a mis invitados a bailar y cantar. La energía y el ambiente que manejan es lo mejor, sin duda los recomiendo!', name: 'Marcela Torres', role: 'Cumpleaños en Jardín' },
+  { text: 'Muy recomendada la banda Amargo, el repertorio que manejan hizo que nuestra fiesta se sintiera única. A pesar de haber sido algo íntimo supieron leer el momento y nos dieron todo lo que esperábamos.', name: 'Carlos & Elena', role: 'Aniversario de Bodas' },
+  { text: 'Contraté a Amargo para la inauguración de mi cafetería. Llegaron a tiempo, se instalaron sin problema y desde el primer momento hubo ambiente. El show estuvo muy bien y los clientes lo notaron. Los tendré en cuenta para mis siguientes eventos.', name: 'Sofía Mendoza', role: 'Inauguración de Cafetería' },
+  { text: 'La fiesta fue un éxito con Amargo. Las canciones 100/10, todos bailamos y cantamos, la chica tiene una voz increíble! Se volvieron de mis bandas favoritas, todo muy fluido y buena vibra.', name: 'Mauricio Gómez', role: 'Cena de Negocios' }
 ]
 
 const headerRef = ref(null)
