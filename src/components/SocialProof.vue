@@ -1,10 +1,11 @@
 <template>
-  <section id="social-proof" class="bg-surface relative overflow-hidden" aria-label="Opiniones y reseñas">
+  <section id="social-proof" class="bg-surface relative overflow-hidden" :aria-label="businessOnly ? 'Experiencias de negocios' : 'Opiniones y reseñas'">
     <div class="section-wrap">
       <div ref="headerRef" class="mb-[clamp(2rem,5vw,3rem)] flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <div class="section-eyebrow"><span class="label">06 — Lo que dicen</span></div>
-          <h2 class="section-title">La gente<br>habla.</h2>
+          <div class="section-eyebrow"><span class="label">05 — {{ businessOnly ? 'Comentarios de la fecha' : 'Lo que dicen' }}</span></div>
+          <h2 v-if="businessOnly" class="section-title">Nos han<br>dicho esto.</h2>
+          <h2 v-else class="section-title">La gente<br>habla.</h2>
         </div>
         
         <!-- Pagination dots -->
@@ -19,7 +20,8 @@
 
       <div class="relative group/carousel">
         <div ref="carouselRef" 
-             class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-8"
+             class="flex items-start gap-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory no-scrollbar scroll-smooth pb-8 transition-[height] duration-500"
+             :style="{ height: carouselHeight }"
              @scroll="onCarouselScroll"
              @touchstart="pauseAutoLoop"
              @touchend="resumeAutoLoop"
@@ -59,10 +61,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { computed, nextTick, ref, onMounted, onUnmounted } from 'vue'
 import { gsap } from '@/composables/useGsap'
 
-const reviews = [
+const props = defineProps({
+  businessOnly: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const allReviews = [
   { text: 'Cada Diciembre procuramos hacer algo diferente en Paki eco mercado, algo que sea único y dé a los visitantes y clientes de paki un ambiente diferente, gracias a Amargo music, por apoyarnos en lograr ese reto, la temática musical que nos compartieron en diciembre fue algo original, combino con las actividades navideñas que realizamos y por supuesto los clientes y expositores se fueron con un gran sabor de boca por el repertorio que nos brindaron. Es más!, estamos considerandolos para el 10° Aniversario de Paki 😊 Excelente banda para los eventos!!', name: 'Paki Ecomercado', role: '' },
   { text: 'Contratamos a Amargo para la fiesta de mi esposo, no esperábamos que pusieran a mis invitados a bailar y cantar. La energía y el ambiente que manejan es lo mejor, sin duda los recomiendo!', name: 'Marcela Torres', role: 'Cumpleaños en Jardín' },
   { text: 'Muy recomendada la banda Amargo, el repertorio que manejan hizo que nuestra fiesta se sintiera única. A pesar de haber sido algo íntimo supieron leer el momento y nos dieron todo lo que esperábamos.', name: 'Carlos & Elena', role: 'Aniversario de Bodas' },
@@ -70,10 +79,15 @@ const reviews = [
   { text: 'La fiesta fue un éxito con Amargo. Las canciones 100/10, todos bailamos y cantamos, la chica tiene una voz increíble! Se volvieron de mis bandas favoritas, todo muy fluido y buena vibra.', name: 'Mauricio Gómez', role: 'Cena de Negocios' }
 ]
 
+const reviews = computed(() => props.businessOnly
+  ? allReviews.filter((_, index) => [0, 3, 4].includes(index))
+  : allReviews)
+
 const headerRef = ref(null)
 const carouselRef = ref(null)
 const currentIndex = ref(0)
 const isUserInteracting = ref(false)
+const carouselHeight = ref('auto')
 let autoLoopTimer = null
 
 function onCardEnter(e) {
@@ -91,6 +105,20 @@ function onCarouselScroll() {
   const container = carouselRef.value
   const itemWidth = container.querySelector('.proof-card').offsetWidth + 24 // card + gap
   currentIndex.value = Math.round(container.scrollLeft / itemWidth)
+  updateCarouselHeight()
+}
+
+function updateCarouselHeight() {
+  if (!carouselRef.value) return
+
+  if (window.innerWidth >= 768) {
+    carouselHeight.value = 'auto'
+    return
+  }
+
+  const cards = carouselRef.value.querySelectorAll('.proof-card')
+  const activeCard = cards[currentIndex.value]
+  carouselHeight.value = activeCard ? `${activeCard.offsetHeight + 32}px` : 'auto'
 }
 
 function scrollToItem(index) {
@@ -104,7 +132,7 @@ function startAutoLoop() {
   if (autoLoopTimer) clearInterval(autoLoopTimer)
   autoLoopTimer = setInterval(() => {
     if (!isUserInteracting.value && carouselRef.value) {
-      const nextIndex = (currentIndex.value + 1) % reviews.length
+      const nextIndex = (currentIndex.value + 1) % reviews.value.length
       scrollToItem(nextIndex)
     }
   }, 4000)
@@ -131,10 +159,13 @@ onMounted(() => {
   )
   
   startAutoLoop()
+  nextTick(updateCarouselHeight)
+  window.addEventListener('resize', updateCarouselHeight, { passive: true })
 })
 
 onUnmounted(() => {
   if (autoLoopTimer) clearInterval(autoLoopTimer)
+  window.removeEventListener('resize', updateCarouselHeight)
 })
 </script>
 

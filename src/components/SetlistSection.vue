@@ -85,12 +85,12 @@ onMounted(() => {
       <div ref="headerRef" class="mb-[clamp(2rem,5vw,3rem)] flex flex-row items-end justify-between gap-4">
         <div>
           <div class="section-eyebrow"><span class="label">04 — Repertorio</span></div>
-          <h2 class="section-title mb-0">Set List.</h2>
+          <h2 class="section-title mb-0">Lo que vamos a tocar.</h2>
         </div>
         
         <div class="nostalgia-sticker bg-red font-heading font-black italic uppercase leading-tight px-3 py-1.5 border-[2px] border-white shadow-[3px_3px_0_var(--color-lime)] rotate-3 transition-transform duration-500 hover:-rotate-3 hover:scale-110 cursor-default flex-shrink-0 mb-1"
              style="font-size: 0.9rem;" aria-hidden="true">
-          100% Nostalgia
+          Pop + rock en español
         </div>
       </div>
 
@@ -106,7 +106,7 @@ onMounted(() => {
           @click="activeTab = 'rock'"
           class="flex-1 py-3.5 font-heading font-bold uppercase tracking-[0.15em] transition-all duration-300 rounded-sm"
           :class="activeTab === 'rock' ? 'active-tab' : 'text-white/60 hover:text-white'">
-          <span style="font-size: 0.85rem;">Pop Rock</span>
+          <span style="font-size: 0.85rem;">Rock</span>
         </button>
       </div>
 
@@ -132,7 +132,7 @@ onMounted(() => {
 
         <!-- Pop Rock Column -->
         <div :class="{ 'block': activeTab === 'rock', 'hidden lg:block': activeTab !== 'rock' }">
-          <div class="hidden lg:inline-block font-heading text-xl font-bold tracking-[0.15em] uppercase text-lime mb-6 pb-2 border-b border-lime/30">Pop Rock</div>
+          <div class="hidden lg:inline-block font-heading text-xl font-bold tracking-[0.15em] uppercase text-lime mb-6 pb-2 border-b border-lime/30">Rock</div>
           <div ref="rockListRef" role="list" class="flex flex-col">
             <div v-for="(t, i) in rockTracks" :key="i"
                  class="track-row grid items-center gap-4 py-3 border-b border-border transition-all duration-300 hover:bg-lime-faint group relative overflow-hidden cursor-default"
@@ -155,7 +155,7 @@ onMounted(() => {
         <div class="h-px flex-1 bg-border relative overflow-hidden">
           <div ref="progressBarRef" class="absolute left-0 top-0 h-full bg-lime w-0"></div>
         </div>
-        <span class="font-heading text-[0.65rem] tracking-[0.2em] uppercase text-text-dim whitespace-nowrap">+25 canciones</span>
+        <span class="font-heading text-[0.65rem] tracking-[0.2em] uppercase text-text-dim whitespace-nowrap">25+ canciones</span>
       </div>
     </div>
   </section>

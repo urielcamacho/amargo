@@ -41,6 +41,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: 80px; /* Offset for fixed navbar */
+  overflow-x: hidden;
 }
 
 body {

@@ -71,8 +71,8 @@
       </div>
 
       <div ref="ctaRowRef" class="relative mt-[clamp(2.5rem,6vw,3.5rem)] flex flex-wrap gap-5 opacity-0">
-        <a href="#cta" class="btn-lime !text-[clamp(0.85rem,2vw,1.1rem)] !py-5 !px-10 !font-bold">Contáctanos</a>
-        <a href="#propuesta" class="btn-ghost !text-[clamp(0.85rem,2vw,1.1rem)] !py-5 !px-10">Ver Propuesta</a>
+        <a href="#propuesta" class="btn-lime !text-[clamp(0.85rem,2vw,1.1rem)] !py-5 !px-10 !font-bold">Cotiza tu evento</a>
+        <a :href="businessUrl" class="btn-ghost !text-[clamp(0.85rem,2vw,1.1rem)] !py-5 !px-10">Propuesta a Negocios</a>
       </div>
     </div>
 
@@ -100,6 +100,7 @@ const scrollIndRef = ref(null)
 const particlesRef = ref(null)
 const cursorGlowRef = ref(null)
 const imageContainerRef = ref(null)
+const businessUrl = `${import.meta.env.BASE_URL}negocios/`
 
 const titleChars = computed(() => 'AMARGO'.split(''))
 
@@ -284,5 +285,12 @@ onUnmounted(() => {
 <style scoped>
 .hero-title {
   perspective: 600px;
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: clamp(4.35rem, 22vw, 5.4rem) !important;
+    white-space: nowrap;
+  }
 }
 </style>

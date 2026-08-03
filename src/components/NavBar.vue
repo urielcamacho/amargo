@@ -9,13 +9,13 @@
     :style="{ padding: '0 clamp(1.25rem, 6vw, 5rem)' }"
   >
     <!-- Logo -->
-    <a href="#hero" class="z-[810] shrink-0 relative group flex items-center h-full py-4">
+    <a :href="logoHref" class="z-[810] shrink-0 relative group flex items-center h-full py-4">
       <img src="@/images/logo-amargo-removebg-preview.png" alt="AMARGO Logo" 
            class="h-[clamp(4rem,10vw,5rem)] w-auto object-contain brightness-110 drop-shadow-[0_0_20px_rgba(163,255,0,0.25)] transition-all"
            :class="{ 'h-[clamp(3.5rem,8vw,4.2rem)]': scrolled }" />
     </a>
 
-    <ul class="hidden md:flex list-none gap-10 items-center">
+    <ul class="list-none items-center" :class="page === 'business' ? 'hidden xl:flex gap-6' : 'hidden md:flex gap-10'">
       <li v-for="link in navLinks" :key="link.href">
         <a
           :href="link.href"
@@ -29,15 +29,17 @@
     </ul>
 
     <a
-      href="#cta"
-      class="hidden md:block btn-lime !py-3 !px-7 !font-bold"
+      :href="contactHref"
+      class="btn-lime !py-3 !px-7 !font-bold"
+      :class="page === 'business' ? 'hidden xl:block' : 'hidden md:block'"
       style="font-size: var(--text-sm);"
     >Contáctanos</a>
 
     <button
       ref="hamRef"
-      class="md:hidden w-11 h-11 flex flex-col justify-center gap-[5px] p-1.5 z-[810]"
-      aria-label="Abrir menú"
+      class="w-11 h-11 flex flex-col justify-center gap-[5px] p-1.5 z-[810]"
+      :class="page === 'business' ? 'xl:hidden' : 'md:hidden'"
+      :aria-label="menuOpen ? 'Cerrar menú' : 'Abrir menú'"
       :aria-expanded="menuOpen"
       @click="toggleMenu"
     >
@@ -61,6 +63,8 @@
     :style="{ padding: 'clamp(1.25rem, 6vw, 5rem)' }"
     role="dialog"
     aria-label="Menú"
+    aria-modal="true"
+    :aria-hidden="!menuOpen"
   >
     <ul class="list-none">
       <li v-for="(link, i) in navLinks" :key="link.href" class="border-b border-border overflow-hidden">
@@ -72,7 +76,7 @@
         >{{ link.text }}</a>
       </li>
     </ul>
-    <a href="#cta" class="mt-8 inline-block self-start btn-lime !px-8 !py-4 text-[0.8rem] !font-bold" @click="closeMenu">
+    <a :href="contactHref" class="mt-8 inline-block self-start btn-lime !px-8 !py-4 text-[0.8rem] !font-bold" @click="closeMenu">
       Contáctanos →
     </a>
     <span class="mt-5 font-heading text-xs tracking-[0.2em] text-text-dim uppercase">@amargo_music</span>
@@ -80,15 +84,34 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 
-const navLinks = [
-  { href: '#about', text: 'Banda' },
-  { href: '#propuesta', text: 'Propuesta' },
-  { href: '#setlist', text: 'Set List' },
-  { href: '#integrantes', text: 'Integrantes' },
-  { href: '#cta', text: 'Contacto' },
-]
+const props = defineProps({
+  page: {
+    type: String,
+    default: 'home',
+    validator: (value) => ['home', 'business'].includes(value),
+  },
+})
+
+const baseUrl = import.meta.env.BASE_URL
+const logoHref = computed(() => props.page === 'business' ? `${baseUrl}#hero` : '#hero')
+const contactHref = computed(() => '#cta')
+const navLinks = computed(() => props.page === 'business'
+  ? [
+      { href: `${baseUrl}#propuesta`, text: 'Eventos' },
+      { href: '#concepto', text: 'Noche Millennial' },
+      { href: '#live', text: 'En vivo' },
+      { href: '#setlist', text: 'Set List' },
+      { href: '#social-proof', text: 'Testimonios' },
+      { href: '#cta', text: 'Contacto' },
+    ]
+  : [
+      { href: '#about', text: 'Banda' },
+      { href: '#propuesta', text: 'Propuesta' },
+      { href: '#integrantes', text: 'Integrantes' },
+      { href: '#cta', text: 'Contacto' },
+    ])
 
 const navRef = ref(null)
 const hamRef = ref(null)

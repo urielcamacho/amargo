@@ -9,7 +9,7 @@
         <span class="label">03 — Experiencia en vivo</span>
       </div>
       
-      <h2 class="section-title mb-12" ref="titleRef">Energía que se siente.</h2>
+      <h2 class="section-title mb-12" ref="titleRef">{{ businessOnly ? 'Así suena en vivo.' : 'Energía que se siente.' }}</h2>
 
       <div class="relative group" ref="videoRef">
         <!-- Video Container with 16:9 Aspect Ratio -->
@@ -32,14 +32,17 @@
 
       <div class="mt-12 flex flex-col md:flex-row justify-between items-start gap-8" ref="footerRef">
         <div class="max-w-xl">
-          <p class="text-text-muted leading-relaxed" style="font-size: var(--text-base);">
-            No son solo covers, es una conexión directa con la audiencia a través de los himnos que definieron una generación. <br><span class="text-text font-medium">Revive la nostalgia con el sonido más potente de la escena.</span>
+          <p v-if="businessOnly" class="text-text-muted leading-relaxed" style="font-size: var(--text-base);">
+            Canciones que conoces, tocadas en vivo y con espacio para que la gente también se meta en la canción.
+          </p>
+          <p v-else class="text-text-muted leading-relaxed" style="font-size: var(--text-base);">
+            No son solo covers, es una conexión directa con la audiencia a través de las canciones que todos conocemos. <br><span class="text-text font-medium">Una noche en vivo que se disfruta de principio a fin.</span>
           </p>
         </div>
-        <div class="flex gap-6">
+        <div v-if="!businessOnly" class="flex gap-6">
           <div class="flex flex-col items-center">
-            <span class="text-lime font-display text-4xl leading-none">30+</span>
-            <span class="text-[0.65rem] uppercase tracking-[0.2em] text-text-dim mt-1">Temas</span>
+            <span class="text-lime font-display text-4xl leading-none">{{ businessOnly ? '25+' : '30+' }}</span>
+            <span class="text-[0.65rem] uppercase tracking-[0.2em] text-text-dim mt-1">{{ businessOnly ? 'Canciones' : 'Temas' }}</span>
           </div>
         </div>
       </div>
@@ -50,6 +53,13 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { gsap } from '@/composables/useGsap'
+
+defineProps({
+  businessOnly: {
+    type: Boolean,
+    default: false,
+  },
+})
 
 const eyebrowRef = ref(null)
 const titleRef = ref(null)

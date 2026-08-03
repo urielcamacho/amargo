@@ -1,5 +1,5 @@
 <template>
-  <section id="cta" class="bg-black relative overflow-hidden text-center min-h-[70vh] flex items-center justify-center" aria-label="Contáctanos">
+  <section id="cta" class="bg-black relative overflow-hidden text-center min-h-[70vh] flex items-center justify-center" :aria-label="ctaCopy.ariaLabel">
     <!-- Background Image with intense blur and darkness -->
     <div class="absolute inset-0 z-0 opacity-40">
       <img src="@/images/Amargo227.jpg" alt="" class="w-full h-full object-cover blur-md scale-110" aria-hidden="true" />
@@ -22,13 +22,13 @@
     </div>
 
     <div class="section-wrap relative z-10">
-      <div ref="labelRef" class="section-eyebrow justify-center mb-6"><span class="label">Contrataciones 2026</span></div>
+      <div ref="labelRef" class="section-eyebrow justify-center mb-6"><span class="label">{{ ctaCopy.eyebrow }}</span></div>
 
       <div ref="titleRef" class="mt-3 mb-8">
         <div class="inline-block border border-lime/30 px-3 py-1 rounded-full mb-6 backdrop-blur-sm">
           <span class="label !text-[10px] !mb-0 flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-lime animate-pulse"></span>
-            Agenda 2026 Abierta
+            {{ ctaCopy.status }}
           </span>
         </div>
         <h2 class="font-display leading-[0.85] tracking-tighter" style="font-size: clamp(3.5rem, 15vw, 10rem);">
@@ -36,10 +36,10 @@
         </h2>
       </div>
 
-      <div class="max-w-2xl mx-auto mb-12">
-        <p ref="subRef" class="text-text-muted leading-relaxed" style="font-size: var(--text-lg);">
-          No es música de fondo — <span class="text-text font-bold">es un show</span><br>
-          Cotiza tu evento y vive la experiencia AMARGO.
+      <div ref="subRef" class="max-w-2xl mx-auto mb-12">
+        <p class="text-text-muted leading-relaxed" style="font-size: var(--text-lg);">
+          {{ ctaCopy.lead }} — <span class="text-text font-bold">{{ ctaCopy.emphasis }}</span><br>
+          {{ ctaCopy.detail }}
         </p>
       </div>
 
@@ -47,12 +47,12 @@
         <a href="https://instagram.com/amargo_music" target="_blank" rel="noopener noreferrer"
            class="btn-lime min-w-[260px] text-center !py-5 !font-bold uppercase tracking-[0.2em] shadow-[0_20px_40px_-10px_rgba(163,255,0,0.3)] hover:shadow-[0_25px_50_50px_-12px_rgba(163,255,0,0.5)] transition-all"
            style="font-size: var(--text-base);">
-          DM en Instagram →
+          {{ ctaCopy.instagramLabel }}
         </a>
-        <a href="mailto:aamargomusic@gmail.com" 
+        <a :href="mailHref"
            class="btn-ghost min-w-[260px] text-center !py-5 !font-bold uppercase tracking-[0.2em] hover:bg-white/5 transition-all"
            style="font-size: var(--text-base);">
-          Enviar Correo →
+          {{ ctaCopy.emailLabel }}
         </a>
       </div>
 
@@ -68,11 +68,57 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { gsap } from '@/composables/useGsap'
 
-const titleWords = ['Listos', 'para', 'el', 'show.']
-const metaItems = ['Rider técnico incluido', 'Respuesta en 24 hrs', 'Set adaptable al evento']
+const props = defineProps({
+  mode: {
+    type: String,
+    default: 'events',
+    validator: (value) => ['events', 'business'].includes(value),
+  },
+})
+
+const ctaCopy = computed(() => props.mode === 'business'
+  ? {
+      ariaLabel: 'Solicita Noche Millennial para tu negocio',
+      eyebrow: 'Para tu próxima fecha',
+      status: 'Noche Millennial · AMARGO',
+      lead: 'Tú pones el lugar',
+      emphasis: 'nosotros llevamos las canciones',
+      detail: 'Cuéntanos qué fecha tienes en mente.',
+      instagramLabel: 'Hablemos por Instagram →',
+      emailLabel: 'Hablemos de la fecha →',
+    }
+  : {
+      ariaLabel: 'Contáctanos',
+      eyebrow: 'Contrataciones 2026',
+      status: 'Agenda 2026 abierta',
+      lead: 'No es música de fondo',
+      emphasis: 'es un show',
+      detail: 'Cotiza tu evento y vive la experiencia AMARGO.',
+      instagramLabel: 'DM en Instagram →',
+      emailLabel: 'Enviar correo →',
+    })
+
+const titleWords = computed(() => props.mode === 'business'
+  ? ['Arma', 'la', 'noche.']
+  : ['Listos', 'para', 'el', 'show.'])
+
+const metaItems = computed(() => props.mode === 'business'
+  ? ['Fecha puntual', 'Formato definido', 'Cotización previa']
+  : ['Rider técnico incluido', 'Respuesta en 24 hrs', 'Set adaptable al evento'])
+
+const mailHref = computed(() => {
+  const subject = props.mode === 'business'
+    ? 'Noche Millennial para mi fecha'
+    : 'Cotización para evento con AMARGO'
+  const body = props.mode === 'business'
+    ? 'Hola, quiero platicar sobre una fecha para Noche Millennial.'
+    : 'Hola, quiero cotizar a AMARGO para mi evento.'
+
+  return `mailto:aamargomusic@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+})
 
 const glowRef = ref(null)
 const labelRef = ref(null)

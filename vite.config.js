@@ -13,5 +13,13 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  build: {
+    rollupOptions: {
+      input: {
+        home: fileURLToPath(new URL('./index.html', import.meta.url)),
+        negocios: fileURLToPath(new URL('./negocios/index.html', import.meta.url)),
+      },
+    },
+  },
   base: '/amargo/',
 })

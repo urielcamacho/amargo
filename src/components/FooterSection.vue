@@ -4,9 +4,11 @@
       <!-- Top -->
       <div class="grid gap-10 sm:grid-cols-[1.5fr_1fr_1fr] pb-[clamp(2rem,5vw,3rem)] border-b border-border">
         <div>
-          <img src="@/images/logo-amargo-removebg-preview.png" alt="AMARGO Logo" class="h-20 w-auto object-contain mb-6 brightness-110" />
+          <a :href="homeUrl" class="inline-block">
+            <img src="@/images/logo-amargo-removebg-preview.png" alt="AMARGO Logo" class="h-20 w-auto object-contain mb-6 brightness-110" />
+          </a>
           <p class="text-[0.85rem] text-text-muted leading-relaxed max-w-[260px]">
-            Música en vivo de alta calidad y profesionalismo. Combinamos energía vibrante con la nostalgia de los 2000s para asegurar una noche exitosa.
+            {{ description }}
           </p>
         </div>
         <div>
@@ -22,7 +24,7 @@
           <ul class="list-none flex flex-col gap-2.5">
             <li><a href="https://instagram.com/amargo_music" target="_blank" rel="noopener" class="text-[0.88rem] text-text-muted hover:text-lime transition-colors">@amargo_music</a></li>
             <li><a href="mailto:aamargomusic@gmail.com" class="text-[0.88rem] text-text-muted hover:text-lime transition-colors">aamargomusic@gmail.com</a></li>
-            <li><a href="#cta" class="text-[0.88rem] text-text-muted hover:text-lime transition-colors">Contáctanos →</a></li>
+            <li><a :href="contactHref" class="text-[0.88rem] text-text-muted hover:text-lime transition-colors">Contáctanos →</a></li>
           </ul>
         </div>
       </div>
@@ -43,10 +45,33 @@
 </template>
 
 <script setup>
-const navLinks = [
-  { href: '#about', text: 'Acerca de' },
-  { href: '#propuesta', text: 'Propuesta' },
-  { href: '#setlist', text: 'Set List' },
-  { href: '#integrantes', text: 'Integrantes' },
-]
+import { computed } from 'vue'
+
+const props = defineProps({
+  page: {
+    type: String,
+    default: 'home',
+    validator: (value) => ['home', 'business'].includes(value),
+  },
+})
+
+const baseUrl = import.meta.env.BASE_URL
+const homeUrl = `${baseUrl}#hero`
+const contactHref = '#cta'
+const description = computed(() => props.page === 'business'
+  ? 'Pop y rock en español de los 2000, tocado en vivo por AMARGO.'
+  : 'Música en vivo de alta calidad y profesionalismo para hacer de cada evento una noche inolvidable.')
+const navLinks = computed(() => props.page === 'business'
+  ? [
+      { href: `${baseUrl}#propuesta`, text: 'Propuesta para eventos' },
+      { href: '#concepto', text: 'Noche Millennial' },
+      { href: '#live', text: 'En vivo' },
+      { href: '#setlist', text: 'Set List' },
+      { href: '#social-proof', text: 'Testimonios' },
+    ]
+  : [
+      { href: '#about', text: 'Acerca de' },
+      { href: '#propuesta', text: 'Propuesta' },
+      { href: '#integrantes', text: 'Integrantes' },
+    ])
 </script>
